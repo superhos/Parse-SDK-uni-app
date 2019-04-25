@@ -720,4 +720,70 @@ describe('Parse User', () => {
     expect(Parse.FacebookUtils.isLinked(user)).toBe(false);
     expect(Parse.AnonymousUtils.isLinked(user)).toBe(true);
   });
+
+  it('can link with twitter', async () => {
+    Parse.User.enableUnsafeCurrentUser();
+    const authProvider = {
+      restoreAuthentication() {
+        return true;
+      },
+
+      getAuthType() {
+        return 'twitter';
+      },
+    };
+    const authData = {
+      id: 227463280,
+      consumer_key: "5QiVwxr8FQHbo5CMw46Z0jquF",
+      consumer_secret: "p05FDlIRAnOtqJtjIt0xcw390jCcjj56QMdE9B52iVgOEb7LuK",
+      auth_token: "227463280-k3XC8S5QzfQlOfEdGN8aHWvhWAUpGoLwzsjYQMnt",
+      auth_token_secret: "uLlXKP6djaP9Fc2IdMcp9QqmsouXvDqcYVdUkWdu6pQpM"
+    };
+    const user = new Parse.User();
+    user.setUsername('Alice');
+    user.setPassword('sekrit');
+    await user.signUp();
+
+    await user._linkWith(authProvider.getAuthType(), { authData });
+
+    expect(user.get('authData').twitter.id).toBe(authData.id);
+    expect(user._isLinked(authProvider)).toBe(true);
+
+    await user._unlinkFrom(authProvider);
+    expect(user._isLinked(authProvider)).toBe(false);
+  });
+
+  it('can link with twitter and facebook', async () => {
+    Parse.User.enableUnsafeCurrentUser();
+    Parse.FacebookUtils.init();
+    const authProvider = {
+      restoreAuthentication() {
+        return true;
+      },
+
+      getAuthType() {
+        return 'twitter';
+      },
+    };
+    const authData = {
+      id: 227463280,
+      consumer_key: "5QiVwxr8FQHbo5CMw46Z0jquF",
+      consumer_secret: "p05FDlIRAnOtqJtjIt0xcw390jCcjj56QMdE9B52iVgOEb7LuK",
+      auth_token: "227463280-k3XC8S5QzfQlOfEdGN8aHWvhWAUpGoLwzsjYQMnt",
+      auth_token_secret: "uLlXKP6djaP9Fc2IdMcp9QqmsouXvDqcYVdUkWdu6pQpM"
+    };
+    const user = new Parse.User();
+    user.setUsername('Alice');
+    user.setPassword('sekrit');
+    await user.signUp();
+
+    await user._linkWith(authProvider.getAuthType(), { authData });
+    await Parse.FacebookUtils.link(user);
+
+    expect(Parse.FacebookUtils.isLinked(user)).toBe(true);
+    expect(user._isLinked(authProvider)).toBe(true);
+
+    expect(user.get('authData').twitter.id).toBe(authData.id);
+    expect(user.get('authData').facebook.id).toBe('test');
+  });
 });
