@@ -1,62 +1,20 @@
-# Parse SDK for JavaScript
+# Parse SDK for Uni-app
 
-[![Build Status][build-status-svg]][build-status-link]
-[![Test Coverage][coverage-status-svg]][coverage-status-link]
-[![Npm Version][npm-svg]][npm-link]
-[![CDNJS version][cdn-svg]][cdn-link]
-[![Join The Conversation][discourse-svg]][discourse-link]
-[![Greenkeeper badge][greenkeeper-svg]][greenkeeper-link]
-[![License][license-svg]][license-link]
-[![Backers on Open Collective](https://opencollective.com/parse-server/backers/badge.svg)][open-collective-link]
-[![Sponsors on Open Collective](https://opencollective.com/parse-server/sponsors/badge.svg)][open-collective-link]
-[![Twitter Follow](https://img.shields.io/twitter/follow/ParsePlatform.svg?label=Follow%20us%20on%20Twitter&style=social)](https://twitter.com/intent/follow?screen_name=ParsePlatform)
+A Parse Uni-app SDK base on [Parse Javascript SDK](http://parseplatform.org/Parse-SDK-JS/api/)(2.4.0).
 
-A library that gives you access to the powerful Parse cloud platform from your JavaScript app. For more information on Parse and its features, see [the website](http://parseplatform.org), [the JavaScript guide](http://docs.parseplatform.org/js/guide/) or [API Reference](http://parseplatform.org/Parse-SDK-JS/api/).
+# What is Uni-app
 
-## Getting Started
+[Uni-app](https://uniapp.dcloud.io) is a powerful cross-platform front-end framework base on Vue.js. One code can release to IOS, android, H5, wechat mini-program and so on.
 
-The easiest way to integrate the Parse SDK into your JavaScript project is through the [npm module](https://npmjs.org/parse).
-However, if you want to use a pre-compiled file, you can fetch it from [unpkg](https://unpkg.com). The development version is available at [https://unpkg.com/parse/dist/parse.js](https://unpkg.com/parse/dist/parse.js), and the minified production version is at [https://unpkg.com/parse/dist/parse.min.js](https://unpkg.com/parse/dist/parse.min.js).
+# Difference between JS SDK and Uni-app SDK
 
-### Using Parse on Different Platforms
+Uni-app runs on V8 environment instead of browser. That means it's not allow to use the **Web API**, such as LocalStorage, fetch, XMLHttpRequest.
 
-The JavaScript ecosystem is wide and incorporates a large number of platforms and execution environments. To handle this, the Parse npm module contains special versions of the SDK tailored to use in Node.js and [React Native](https://facebook.github.io/react-native/) environments. Not all features make sense in all environments, so using the appropriate package will ensure that items like local storage, user sessions, and HTTP requests use appropriate dependencies. For server side rendered applications, you may set the `SERVER_RENDERING` variable to prevent warnings at runtime.
+In Parse Uni-app SDK. We update the Web API to Uni-app fixieble by rewrite the Web API classes.
 
-To use the npm modules for a browser based application, include it as you normally would:
+## Usage
 
-```js
-const Parse = require('parse');
-```
-
-For server-side applications or Node.js command line tools, include `'parse/node'`:
-
-```js
-// In a node.js environment
-const Parse = require('parse/node');
-```
-
-For React Native applications, include `'parse/react-native'`:
-```js
-// In a React Native application
-const Parse = require('parse/react-native');
-
-// On React Native >= 0.50 and Parse >= 1.11.0, set the Async
-const AsyncStorage = require('react-native').AsyncStorage;
-Parse.setAsyncStorage(AsyncStorage);
-```
-
-For TypeScript applications, install `'@types/parse'`:
-```
-$ npm install @types/parse
-```
-
-Types are updated manually after every release. If a definition doesn't exist, please submit a pull request to [@types/parse][types-parse]
-
-## Upgrading to Parse SDK 2.0.0
-
-With Parse SDK 2.0.0, gone are the backbone style callbacks and Parse.Promises.
-
-We have curated a [migration guide](2.0.0.md) that should help you migrate your code.
+Same as Parse Javascript SDK. You don't need to make any extra changes. The SDK will detect the environment and change the SDK autmatic.
 
 ## License
 

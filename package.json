@@ -1,6 +1,6 @@
 {
-  "name": "parse",
-  "version": "2.4.0",
+  "name": "parse-uni",
+  "version": "1.0.0",
   "description": "The Parse Uni-app SDK",
   "homepage": "https://parseplatform.org/",
   "keywords": [
