@@ -11,6 +11,7 @@
 /* global XMLHttpRequest, XDomainRequest */
 import CoreManager from './CoreManager';
 import ParseError from './ParseError';
+import UniRequest from './UniRequest';
 
 export type RequestOptions = {
   useMasterKey?: boolean;
@@ -31,9 +32,13 @@ export type FullOptions = {
 };
 
 let XHR = null;
+
 if (typeof XMLHttpRequest !== 'undefined') {
   XHR = XMLHttpRequest;
+} else {
+  XHR = UniRequest;
 }
+
 if (process.env.PARSE_BUILD === 'node') {
   XHR = require('xmlhttprequest').XMLHttpRequest;
 }

@@ -1,7 +1,7 @@
 {
   "name": "parse",
   "version": "2.4.0",
-  "description": "The Parse JavaScript SDK",
+  "description": "The Parse Uni-app SDK",
   "homepage": "https://parseplatform.org/",
   "keywords": [
     "cloud",
@@ -11,9 +11,9 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/parse-community/Parse-SDK-JS"
+    "url": "https://github.com/superhos/Parse-SDK-uni-app"
   },
-  "bugs": "https://github.com/parse-community/Parse-SDK-JS/issues",
+  "bugs": "https://github.com/superhos/Parse-SDK-uni-app/issues",
   "files": [
     "index.js",
     "node.js",
@@ -54,7 +54,7 @@
     "eslint": "5.16.0",
     "eslint-plugin-flowtype": "3.6.1",
     "express": "4.16.4",
-    "gulp": "4.0.1",
+    "gulp": "^4.0.1",
     "gulp-babel": "8.0.0",
     "gulp-derequire": "2.1.0",
     "gulp-insert": "0.5.0",

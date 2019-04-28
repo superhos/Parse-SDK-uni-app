@@ -11,6 +11,9 @@
 
 /* global localStorage */
 import { isLocalDatastoreKey } from './LocalDatastoreUtils';
+import _localStorage from './localStorage';
+
+const localStorage = localStorage || _localStorage
 
 const LocalDatastoreController = {
   fromPinWithName(name: string): Array<Object> {

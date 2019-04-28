@@ -36,10 +36,10 @@ var PLUGINS = {
 
 var DEV_HEADER = (
   '/**\n' +
-  ' * Parse JavaScript SDK v' + VERSION + '\n' +
+  ' * Parse Uni-app SDK v' + VERSION + '\n' +
   ' *\n' +
   ' * The source tree of this library can be found at\n' +
-  ' *   https://github.com/ParsePlatform/Parse-SDK-JS\n' +
+  ' *   https://github.com/superhos/Parse-SDK-uni-app\n' +
   ' */\n'
 );
 
@@ -51,7 +51,7 @@ var FULL_HEADER = (
   ' * All rights reserved.\n' +
   ' *\n' +
   ' * The source tree of this library can be found at\n' +
-  ' *   https://github.com/ParsePlatform/Parse-SDK-JS\n' +
+  ' *   https://github.com/superhos/Parse-SDK-uni-app\n' +
   ' * This source code is licensed under the BSD-style license found in the\n' +
   ' * LICENSE file in the root directory of this source tree. An additional grant\n' +
   ' * of patent rights can be found in the PATENTS file in the same directory.\n' +

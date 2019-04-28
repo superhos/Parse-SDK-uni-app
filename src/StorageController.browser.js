@@ -8,6 +8,10 @@
  *
  * @flow
  */
+import _localStorage from './localStorage';
+
+const localStorage = localStorage || _localStorage
+
 /* global localStorage */
 const StorageController = {
   async: 0,
